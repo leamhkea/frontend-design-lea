@@ -51,13 +51,13 @@ article {
     display: grid;
     grid-template-columns: auto auto;
   }
-}
 
-/* - Sæt `order: 1;` på img på hvert andet card */
-/* Denne sættes udenfor article, da vi her fanger li (strukturen i html) */
-@container (width > 500px) {
-  li:nth-child(even) img {
-    order: 1;
+  /* - Sæt `order: 1;` på img på hvert andet card */
+  /* Benytter &, da li ligger udenfor article, da & henviser tilbage til article */
+  @container (width > 500px) {
+    li:nth-child(even) & img {
+      order: 1;
+    }
   }
 }
 
