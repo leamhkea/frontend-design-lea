@@ -1,4 +1,23 @@
 article {
-    max-width: 65ch;
-    margin-inline: auto;
+  max-width: 65ch;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: [full-start] 1fr [content] minmax(0, 1100px) 1fr [full-end];
+
+  > * {
+    grid-column: content;
+  }
+}
+
+article:has(img) {
+  max-width: none; /* Fjerner begrænsningen, men kun hvis der er et billede */
+  width: 100%; /* Sørger for at article stadig fylder skærmen */
+}
+
+article img {
+  grid-column: full-start / full-end;
+  width: 100vw; /* Fylder hele viewportens bredde */
+  max-width: 100%;
+  display: block;
 }
