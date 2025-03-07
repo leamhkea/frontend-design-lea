@@ -1,23 +1,47 @@
+img {
+  align-self: stretch;
+  object-fit: cover;
+}
+
 .bento {
   display: grid;
+  grid-template-areas:
+    "title title cup"
+    "man list cup"
+    "man list tag";
   gap: var(--spacing-base);
 
   .title {
+    grid-area: title;
     --bg: var(--color-brand-yellow);
   }
 
-  .list {
-    --bg: var(--color-brand-coffee);
-  }
-
-  .image-1 {
+  .cup {
+    grid-area: cup;
     color: var(--color-text-accent);
   }
 
+  .man {
+    grid-area: man;
+  }
+
+  .list {
+    grid-area: list;
+    --bg: var(--color-brand-coffee);
+  }
+
   .tag {
+    grid-area: tag;
     --bg: var(--color-brand-olive);
     font-size: 2rem;
     line-height: 1.2;
+  }
+
+  @media (width < 650px) {
+    grid-template-areas:
+      "title title"
+      "cup man"
+      "list tag";
   }
 }
 
@@ -30,6 +54,8 @@
     padding: var(--spacing-base);
   }
 }
+
+/*            Elementer jeg ikke bruger           */
 
 h2 {
   font-size: 4rem;
