@@ -10,6 +10,7 @@ img {
     "man list cup"
     "man list tag";
   gap: var(--spacing-base);
+  container-type: inline-size;
 
   .title {
     grid-area: title;
