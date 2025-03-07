@@ -5,6 +5,8 @@ img {
 
 .bento {
   display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: min-content;
   grid-template-areas:
     "title title cup"
     "man list cup"
@@ -19,7 +21,22 @@ img {
 
   .cup {
     grid-area: cup;
+    display: grid;
+    grid: "stack";
+    justify-items: center;
+    align-items: end;
     color: var(--color-text-accent);
+
+    > * {
+      grid-area: stack;
+      &:not(img) {
+        /* Sørger for, at tekst ikke gå helt ud til billedekant */
+        margin: var(--spacing-base);
+      }
+    }
+    p:first-of-type {
+      align-self: start;
+    }
   }
 
   .man {
@@ -67,10 +84,6 @@ img {
         display: flex;
       }
     }
-    .cup {
-      background-size: cover;
-      background-position: center;
-    }
   }
 }
 
@@ -116,3 +129,7 @@ h2 {
     --spacing-large: 40px;
   }
 }
+
+/* Løsning:
+https://codepen.io/dannievinther/pen/qEBZKdj/c38841b81246b003eb6fcedaa375c4a2?editors=1100
+*/
