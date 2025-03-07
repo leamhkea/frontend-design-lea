@@ -1,2 +1,20 @@
 /* Dine styles her */
-article {}
+
+article {
+  > * + * {
+    /* Gælder for alle elementer som ikke er defineret længere nede */
+    margin-top: var(--flow-space, 0.5rlh);
+  }
+
+  h2 {
+    --flow-space: 2rlh;
+  }
+  h3 {
+    --flow-space: 1rlh;
+  }
+
+  /* De elementer, der kommer direkte efter en h3  */
+  h3 + * /* I stedet for * kan man bruge p */ {
+    --flow-space: 0.5rlh;
+  }
+}
