@@ -28,7 +28,11 @@ img {
 
   .list {
     grid-area: list;
+    color: var(--color-text-light);
     --bg: var(--color-brand-coffee);
+    .highlight {
+      color: var(--color-brand-yellow);
+    }
   }
 
   .tag {
@@ -53,6 +57,20 @@ img {
 
   &:not(:has(img)) {
     padding: var(--spacing-base);
+  }
+
+  @container (width > 650px) {
+    .title {
+      display: flex;
+
+      div {
+        display: flex;
+      }
+    }
+    .cup {
+      background-size: cover;
+      background-position: center;
+    }
   }
 }
 
