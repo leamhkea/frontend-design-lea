@@ -27,7 +27,9 @@ import { cardContent } from "../data/card-content.js";
           </p>
         </header>
 
-        <ScrollingContainer cardContent={cardContent} />
+        <div class="full">
+          <ScrollingContainer cardContent={cardContent} />
+        </div>
       </section>
     </main>
   </body>
@@ -38,5 +40,15 @@ import { cardContent } from "../data/card-content.js";
     padding-block: 4rem; /* Kun af æstetiske årsager */
   }
   section {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, var(--content-width)) 1fr;
+
+    > * {
+      grid-column: 2;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
   }
 </style>
