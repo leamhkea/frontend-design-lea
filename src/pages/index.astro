@@ -41,13 +41,14 @@ import { cardContent } from "../data/card-content.js";
   }
   section {
     display: grid;
-    grid-template-columns: 1fr minmax(0, var(--content-width)) 1fr;
+    grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
 
     > * {
-      grid-column: 2;
+      grid-column: content;
     }
 
     .full {
+      /* Scroller på tværs uden break imellem */
       grid-column: 1 / -1;
     }
   }

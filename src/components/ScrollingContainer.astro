@@ -23,19 +23,26 @@ const { cardContent } = Astro.props;
     gap: 1rem;
 
     /* Styrer "funktionen/designet på scroll */
-    scroll-snap-type: x mandatory;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    /* block-size: 100svh; */
+    scroll-snap-type: inline mandatory;
+
+    /* Sørger for at ul flugter med indhold fra index */
+    padding-inline: max(20px, 50% - var(--content-width) / 2);
+
+    /* Sørger for card stopper ved starten af hvert card ved scroll*/
+    scroll-padding-inline-start: max(20px, 50% - var(--content-width) / 2);
+
+    /* scroll-snap-stop: always; */
   }
 
   li {
-    flex-basis: 40%;
+    /* Hvor brede hvert element bliver */
+    flex-basis: min(90%, 400px);
+
+    /* Gør den scrollbar */
     flex-shrink: 0;
 
-    /* > * {
-      max-width: 50ch;
-    } */
+    /* Sørger for cards vises i midten */
+    scroll-snap-align: start;
 
     /* Custom proporties styling af card */
     padding: var(--card-padding);
